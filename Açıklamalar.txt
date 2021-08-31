@@ -1,0 +1,61 @@
+ASP.NET Web Application (.NET Framework) --> Empty + WebAPI
+
+Kendimize bankayý temsil eden bir veritabaný ve müþteri bilgisi oluþturmalýyýz..
+
+EF indir.. 
+
+Web.Config ayarlarý
+
+Entities --> CustomerCardInfo.cs
+
+DTOClasses --> PaymentDTO.cs  (iki proje arasýnda haberleþme yapmamý saðlayan sýnýf) JSON verilerle bunu alacaðým ya da deserialize edeceðim. Diðer proje PaymentDTO JSON gönderecek burada deserialize edilecek..
+
+DBTool
+
+MyContext
+
+Cores indir.. Manage NugetPackages--> cors --> Microsoft.AspNet.WebApi.Cors
+
+-----------------------------------------------------------------------
+WebApiConfig.cs de ayarlamalar..
+
+    EnableCorsAttribute cors = new EnableCorsAttribute("*", "*", "*");
+
+    config.EnableCors(cors);
+
+    routeTemplate: "api/{controller}/{action}/{id}",
+-----------------------------------------------------------------------
+
+    MyInit.cs, Migration yerine Strategy Pattern kullanýlacak.. ve Database.SetInitializer(new MyInit()); (MyContext.cs de)
+
+
+    PaymentController.cs yanlýþlýkla controller açarsan >>> 
+    Controller silersin, View silinir.. RouteConfig ,FilterConfig, BundleConfig
+    Control shift B yap
+    Reference da System.Web.Mvc, System.Web.Razor, System.Web.Helpers, System.Web.WebPages.Razor, System.Web.WebPages, System.Web.WebPages.Deployment sil
+    -----------------------------------------------------------------------
+
+    Controller > Add > Controller > Web API 2 Controller Empty
+
+
+    public IHttpActionResult ReceivePayment(PaymentDTO item) kýsmý bitince tekrar Sepet uygulamasýna geç..
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
